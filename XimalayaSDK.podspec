@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XimalayaSDK"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "XimalayaSDK."
 
   s.description  = "XimalayaSDK is from XMOpenPlatform for our users to use."
