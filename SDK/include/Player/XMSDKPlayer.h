@@ -65,11 +65,14 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
 - (void)XMTrackPlayerDidStopped;
 //结束播放时调用
 - (void)XMTrackPlayerDidEnd;
+//切换声音时调用
+- (void)XMTrackPlayerDidChangeToTrack:(XMTrack *)track;
 //播放失败时调用
 - (void)XMTrackPlayerDidFailedToPlayTrack:(XMTrack *)track withError:(NSError *)error;
 //播放失败时是否继续播放下一首
 - (BOOL)XMTrackPlayerShouldContinueNextTrackWhenFailed:(XMTrack *)track;
-
+//成功替换播放列表时调用
+- (void)XMTrackPlayerDidReplacePlayList:(NSArray *)list;
 //播放数据请求失败时调用，data.description是错误信息
 - (void)XMTrackPlayerDidErrorWithType:(NSString *)type withData:(NSDictionary*)data;
 //- (void)XMTrackPlayerDidErrorWithType:(NSInteger)type withData:(NSDictionary*)data;
@@ -283,7 +286,7 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
  */
 - (void)playPreProgram;
 /**
- * 清理缓存(即上文同名方法)  
+ * 清理缓存(即上文同名方法)
  */
 //- (void)clearCacheSafely;
 /**

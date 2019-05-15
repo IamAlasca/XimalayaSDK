@@ -94,6 +94,10 @@ typedef enum {
 
 @interface XMLYAuthorize : NSObject
 
+@property (nonatomic,assign) BOOL usingSynRequest; //!< 使用同步的方式进行请求 send request synchronously，目前仅对refreshToken和requestExchangeTokenWithThirdUid两个方法有效
+
+@property (nonatomic, weak) id<XMLYAuthorizeDelegate> callbackMetheds; //!< 代理，一般不建议直接设置该属性，如果设置则要确保其代理一直存在否则将收不到授权相关的一些回调
+
 /*
  *  SDK单例对象
  */
@@ -146,6 +150,8 @@ typedef enum {
  */
 - (XMLYAuthorizeModel *)loadAuthorizeModel;
 
+- (void)saveAuthorizeModel:(XMLYAuthorizeModel *)model;
+
 - (BOOL)isLoggedIn;
 
 - (long)currentUid;
@@ -179,4 +185,3 @@ typedef enum {
 
 
 @end
-

@@ -54,14 +54,14 @@ typedef void (^XMRequestHandler)(id result,XMErrorModel *error);
 
 @interface XMReqMgr : NSObject
 
-@property (nonatomic,retain) NSString *proxyHost;  //http 代理 host
+@property (nonatomic,strong) NSString *proxyHost;  //http 代理 host
 @property (nonatomic,assign) NSInteger proxyPort;  //http 代理 port
-@property (nonatomic,retain) NSString *proxyUsername;  //http 代理 认证用户
-@property (nonatomic,retain) NSString *proxyPassword;  //http 代理 认证密码
+@property (nonatomic,strong) NSString *proxyUsername;  //http 代理 认证用户
+@property (nonatomic,strong) NSString *proxyPassword;  //http 代理 认证密码
 
 @property (nonatomic,assign) BOOL usingSynPost;
-@property (nonatomic,retain) NSString *appkey;
-@property (nonatomic,retain) NSString *appSecret;
+@property (nonatomic,strong) NSString *appkey;
+@property (nonatomic,strong) NSString *appSecret;
 
 //设为YES即仍旧使用HTTP请求api.ximalaya.com(默认使用HTTPS)
 @property (nonatomic,assign) BOOL usingHttpWhenRequestApiDomain;
@@ -70,7 +70,7 @@ typedef void (^XMRequestHandler)(id result,XMErrorModel *error);
 
 + (NSString *)version;
 
-@property (nonatomic,assign) id<XMReqDelegate> delegate;
+@property (nonatomic,weak) id<XMReqDelegate> delegate;
 
 /**
  *  生成或更新动态口令（如没有则生成、有则更新）
@@ -104,6 +104,11 @@ typedef void (^XMRequestHandler)(id result,XMErrorModel *error);
 
 //--------------------------------付费相关----------------------------------------------------
 #pragma mark - 付费相关
+
+/**
+ * 将授权成功获得的token同步到XMReqMgr
+ */
+- (void)updateAuthTokenToXMReqMgr:(NSString *)authToken;
 
 /**
  *  请求付费相关接口
