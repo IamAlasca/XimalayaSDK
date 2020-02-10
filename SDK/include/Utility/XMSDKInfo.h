@@ -14,7 +14,7 @@
  *  喜马拉雅请求类型
  */
 typedef NS_ENUM(NSInteger, XMReqType){
-    //点播接口
+//点播接口
     /** 喜马拉雅内容分类 */
     XMReqType_CategoriesList = 0,
     /** 获取专辑或声音的标签 */
@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_MetadataAlbums,
     
     
-    //直播接口
+//直播接口
     /** 获取直播省份列表 */
     XMReqType_LiveProvince,
     /** 获取直播电台列表 */
@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger, XMReqType){
     /** 根据分类获取直播电台数据 */
     XMReqType_LiveGetRadiosByCategory,
     
-    //搜索接口
+//搜索接口
     /** 搜索获取专辑列表 */
     XMReqType_SearchAlbums,
     /** 搜索获取声音列表 */
@@ -73,9 +73,9 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_SearchAll,
     /** 搜索获取主播列表 */
     XMReqType_SearchAnnouncers,
+
     
-    
-    //推荐接口
+//推荐接口
     /** 获取某个专辑的相关推荐。 */
     XMReqType_AlbumsRelative,
     //获取某个声音列表的相关专辑
@@ -90,8 +90,8 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_CategoryRecommendAlbums,
     //获取儿童版猜你喜欢专辑列表
     XMReqType_StoryMachineGuessLikeAlbums,
-    
-    //榜单接口
+   
+//榜单接口
     /** 根据榜单类型获取榜单首页的榜单列表 */
     XMReqType_RankList,
     /** 根据rank_key获取某个榜单下的专辑列表 */
@@ -102,14 +102,14 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_RankRadio,
     
     
-    //听单接口
+//听单接口
     /** 获取精品听单列表 */
     XMReqType_ColumnList,
     /** 获取某个听单详情，每个听单包含听单简介信息和专辑或声音的列表 */
     XMReqType_ColumnDetail,
     
     
-    //焦点图接口
+//焦点图接口
     /** 获取榜单的焦点图列表 */
     XMReqType_RankBanner,
     /** 获取发现页推荐的焦点图列表 */
@@ -118,7 +118,7 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_CategoryBanner,
     
     
-    //冷启动接口
+//冷启动接口
     /** 获取冷启动一级分类 */
     XMReqType_ColdbootGenRes,
     /** 获取冷启动二级分类 */
@@ -131,7 +131,7 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_ColdbootDetail,
     
     
-    //主播接口
+//主播接口
     //获取喜马拉雅主播分类
     XMReqType_AnnouncerCategory,
     //获取某个分类下的主播列表
@@ -143,32 +143,12 @@ typedef NS_ENUM(NSInteger, XMReqType){
     
     //获取某个主播下的声音列表
     XMReqType_TracksByAnnouncer,
+
     
-    //定制化接口
-    /** 获取为合作方定制化接口 */
-    XMReqType_CustomizedCategory,
-    /** 获取为合作方定制化的声音列表 */
-    XMReqType_CustomizedTrack,
-    
-    /** 获取合作方自定制的专辑类听单 */
-    XMReqType_CustomizedAlbumColumns,
-    /** 获取合作方自定制的专辑类听单 */
-    XMReqType_CustomizedTrackColumns,
-    /** 获取自定义专辑听单内容详情 */
-    XMReqType_CustomizedAlbumColumnDetail,
-    /** 获取自定义声音听单内容详情 */
-    XMReqType_CustomizedTrackColumnDetail,
-    /** 搜索自定义声音听单下的声音列表 */
-    XMReqType_CustomizedSearchTracks,
-    /** 获取自定义声音详情 */
-    XMReqType_CustomizedTrackDetail,
-    /** 搜索所有专辑或声音听单 */
-    XMReqType_CustomizedSearchAlbumsOrTrackColumns,
-    
-    //配置接口
+//配置接口
     XMReqType_appConfig,
     
-    //付费接口
+//付费接口
     /** 获取所有付费专辑 */
     XMReqType_AllPaidAlbums,
     /** 获取付费精品分类下的标签列表 */
@@ -199,14 +179,14 @@ typedef NS_ENUM(NSInteger, XMReqType){
     XMReqType_GetPriceInfo,
     /** 根据订单号获取支付url */
     XMReqType_GetPayUrl,
-    
-    // 用户隐私数据API接口
+ 
+// 用户隐私数据API接口
     /** 获取当前登陆的喜马拉雅用户的基本信息 */
     XMReqType_UserInfo,
     /** 获取当前登陆的喜马拉雅用户的画像数据*/
     XMReqType_Persona,
     
-    //用户播放历史接口
+//用户播放历史接口
     /** 根据用户ID获取用户播放云历史记录 */
     XMReqType_PlayHistoryGetByUid,
     /** 用户上传播放云历史记录 */
@@ -216,14 +196,14 @@ typedef NS_ENUM(NSInteger, XMReqType){
     /** 用户批量删除播放云历史记录 */
     XMReqType_PlayHistoryBatchDelete,
     
-    //用户订阅接口
+//用户订阅接口
     /** 获取喜马拉雅用户的动态更新的订阅专辑列表 */
     XMReqType_SubscribeGetAlbumsByUid,
     /** 用户新增或取消已订阅专辑 */
     XMReqType_SubscribeAddOrDelete,
     /** 用户批量新增已订阅专辑 */
     XMReqType_SubscribeBatchAdd,
-    
+
 };
 
 #endif

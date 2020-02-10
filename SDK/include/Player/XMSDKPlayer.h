@@ -55,6 +55,8 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
 #pragma mark - player state change
 //播放列表结束时被调用
 - (void)XMTrackPlayerDidPlaylistEnd;
+//开始播放时调用
+- (void)XMTrackPlayerDidStart;
 //将要播放时被调用
 - (void)XMTrackPlayerWillPlaying;
 //已经播放时被调用
@@ -123,8 +125,8 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
 
 + (XMSDKPlayer *)sharedPlayer;
 
-@property (nonatomic,assign) id<XMTrackPlayerDelegate>    trackPlayDelegate;
-@property (nonatomic,assign) id<XMLivePlayerDelegate>    livePlayDelegate;
+@property (nonatomic,weak) id<XMTrackPlayerDelegate>    trackPlayDelegate;
+@property (nonatomic,weak) id<XMLivePlayerDelegate>    livePlayDelegate;
 
 // 默认使用低码率的url进行播放，如果需要使用高码率，请将usingHighQualityUrl设置为YES；
 @property (nonatomic,assign) BOOL usingHighQualityUrl;
@@ -138,7 +140,7 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
 //音量属性，用于显示音量
 @property (nonatomic,assign) float sdkPlayerVolume;
 
-//播放状态
+//播放状态，请优先使用isPlaying和isPaused来做播放器状态判断，因为Stop状态代表停止和其他一些状态
 @property (nonatomic,assign,readonly) XMSDKPlayerState playerState;          //track播放状态
 @property (nonatomic,assign,readonly) XMSDKLivePlayerState livePlayerState;  //live播放状态
 
@@ -163,7 +165,22 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
  *  重置播放速率，即恢复正常速率playRate=1.0
  */
 - (void)resetPlaySpeed;
-
+/**
+ * 设置是否为录音+播放
+ */
+- (void)setPlayAndRecord:(BOOL)flag withOptions:(AVAudioSessionCategoryOptions)options;
+/**
+ * 设置边录音边播放
+ */
+- (void)settingEnableBackgroundResumePlay;
+/**
+ * 设置是否加密播放
+ */
+- (void)setDecryptedPlay:(BOOL)flag;
+/**
+ * 设置声音缓存和下载路径为属性为NONE-PROTECTION，如果重设了下载路径，请再调一次此方法
+ */
+- (BOOL)setSoundCacheAndDownloadPathAttributedNone;
 #pragma mark 播放相关方法
 
 /**
@@ -246,7 +263,14 @@ typedef NS_ENUM(NSInteger, XMSDKLivePlayerState) {
  * 返回当前播放的声音
  */
 - (XMTrack*)currentTrack;
-
+/**
+ * 正在播放中
+ */
+- (BOOL)isPlaying;
+/**
+* 暂停状态
+*/
+- (BOOL)isPaused;
 #pragma mark 电台相关方法
 
 /**

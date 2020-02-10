@@ -32,6 +32,9 @@
 @property (nonatomic, assign) double createdAt;
 @property (nonatomic, assign) double updatedAt;
 
+@property (nonatomic, strong) NSString *recommendReason;
+@property (nonatomic, strong) NSString *sellingPoint;
+
 //可否下载，YES-可下载，NO-不可下载
 @property (nonatomic, assign) BOOL canDownload;
 

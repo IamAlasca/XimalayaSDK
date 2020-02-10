@@ -61,6 +61,8 @@ typedef NS_ENUM(NSInteger, XMCacheTrackStatus) {
 @property (nonatomic, assign) double updatedAt;
 @property (nonatomic, assign) double createdAt;
 
+@property (nonatomic, assign) NSInteger  vipFirstStatus; //!< 0: 非抢先听 1:抢先听  2: 抢先听过期
+
 //可否下载，YES-可下载，NO-不可下载
 @property (nonatomic, assign) BOOL canDownload;
 

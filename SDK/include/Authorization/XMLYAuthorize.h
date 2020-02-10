@@ -183,5 +183,9 @@ typedef enum {
  */
 -(void)checkQRCodeLoginStatus;
 
+/**
+ * 授权回调callbackUrl中带有参数的时候，将此属性设置为YES
+ */
+@property (nonatomic, assign) BOOL  appRedirectUriHasParams;
 
 @end
