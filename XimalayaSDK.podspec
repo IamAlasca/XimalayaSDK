@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XimalayaSDK"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "XimalayaSDK."
 
   s.description  = "XimalayaSDK is from XMOpenPlatform for our users to use."
@@ -31,16 +31,6 @@ Pod::Spec.new do |s|
   s.subspec 'Downloader' do |ss|
     ss.source_files = 'SDK/include/Downloader/**/*.{h,m}'
     ss.public_header_files = 'SDK/include/Downloader/**/*.h'
-  end
-
-  s.subspec 'FMDB' do |ss|
-    ss.source_files = 'SDK/include/FMDB/**/*.{h,m}'
-    ss.public_header_files = 'SDK/include/FMDB/**/*.h'
-  end
-
-  s.subspec 'MBProgressHUD' do |ss|
-    ss.source_files = 'SDK/include/MBProgressHUD/**/*.{h,m}'
-    ss.public_header_files = 'SDK/include/MBProgressHUD/**/*.h'
   end
 
   s.subspec 'Player' do |ss|
