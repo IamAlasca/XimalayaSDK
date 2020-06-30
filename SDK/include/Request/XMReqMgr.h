@@ -63,10 +63,14 @@ typedef void (^XMRequestHandler)(id result,XMErrorModel *error);
 @property (nonatomic,strong) NSString *appkey;
 @property (nonatomic,strong) NSString *appSecret;
 
-//设为YES即仍旧使用HTTP请求api.ximalaya.com(默认使用HTTPS)
-@property (nonatomic,assign) BOOL usingHttpWhenRequestApiDomain;
+/** 1代表强制使用https，2代表使用http，其他值则不进行处理
+    如果需要用到广播，则必须支持http请求
+*/
+@property (nonatomic,assign) NSUInteger usingHttpWhenRequestApiDomain;
 
 @property (nonatomic, assign) BOOL enableDeviceIdHashMode;
+
+@property (nonatomic, copy) NSString  *deviceInfo; //!< sdk所使用的设备信息
 
 + (XMReqMgr *)sharedInstance;
 
